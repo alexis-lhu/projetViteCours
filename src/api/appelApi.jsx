@@ -24,19 +24,18 @@ function Example() {
   })
 
   if (isPending) return 'Loading...'
-
   if (error) return 'An error has occurred: ' + error.message
 
   return (
-     <div>
-    {data.map((product) => (
-      <div key={product.id}>
-        <img src={product.image} alt="product image" style={{width: "100px", height: "auto"}}/>
-        <h3>{product.title}</h3>
-        <p>{product.price} €</p>
-        <p>{product.description}</p>
-      </div>
-    ))}
-  </div>
+    <div className="products-container">
+      {data.map((product) => (
+        <div className="product-card" key={product.id}>
+          <img src={product.image} alt="product image" />
+          <h3>{product.title}</h3>
+          <p className="product-price">{product.price} €</p>
+          <p className="product-description">{product.description}</p>
+        </div>
+      ))}
+    </div>
   )
 }
