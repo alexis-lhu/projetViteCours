@@ -1,14 +1,11 @@
-import { useState } from 'react'
 import './App.css'
 import Api from './api/appelApi.jsx'
+import Header from './component/Header.jsx'
 
 function App() {
   return (
     <>
-      <header>
-        <h2>Welcome to my clothes store</h2>
-      </header>
-
+      <Header />
       <main className="main-content">
         <Api />
       </main>

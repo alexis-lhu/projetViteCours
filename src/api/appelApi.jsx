@@ -9,12 +9,12 @@ const queryClient = new QueryClient()
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Example />
+      <Card />
     </QueryClientProvider>
   )
 }
 
-function Example() {
+function Card() {
   const { isPending, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () =>
