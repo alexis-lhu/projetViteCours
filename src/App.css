@@ -15,14 +15,49 @@ body {
 header {
   background: white;
   padding: 20px 0;
-  text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 30px;
+}
+
+.header-content {
+  width: 95%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h2 {
   font-size: 28px;
   font-weight: 600;
+}
+
+.header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-email {
+  font-size: 14px;
+  color: #666;
+}
+
+.logout-button {
+  padding: 8px 16px;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #b71c1c;
 }
 
 /* ==== Main wrapper ==== */
@@ -48,6 +83,7 @@ header h2 {
   transition: 0.25s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
+  cursor: pointer;
 }
 
 .product-card:hover {

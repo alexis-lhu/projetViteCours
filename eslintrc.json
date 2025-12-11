@@ -1,0 +1,132 @@
+
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": ["./tsconfig.json"],
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "prettier",
+    "eslint-plugin-prettier",
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/require-default-props": "off",
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ],
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement",
+      {
+        "selector": "AssignmentExpression > LogicalExpression[operator='||']",
+        "message": "Utilisez ?? au lieu de || pour les valeurs par défaut (pour éviter d'ignorer les valeurs falsy comme 0, '', false)."
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "svg": "always",
+        "json": "always"
+      }
+    ],
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/setupTests.ts",
+          "**/**/*.tests.jsx",
+          "**/**/*.tests.tsx",
+          "**/**/*.tests.js",
+          "**/**/*.tests.ts",
+          "**/**/*.stories.jsx",
+          "**/**/*.stories.tsx",
+          "**/**/*.spec.tsx",
+          "tests/**/*.tsx",
+          "tests/**/*.ts",
+          "cypress/**/*.js",
+          "cypress/**/*.ts",
+          "**/*.cy.js",
+          "**/*.cy.ts",
+          "**/*.cy.tsx",
+          "cypress.config.ts",
+          "cypress.config.js"
+        ]
+      }
+    ],
+    "no-console": "error",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*.ts", "tests/**/*.tsx"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": ["cypress/**/*.ts", "cypress/**/*.tsx", "**/*.cy.ts", "**/*.cy.tsx"],
+      "parserOptions": {
+        "project": "./cypress/tsconfig.json"
+      },
+      "env": {
+        "cypress/globals": true,
+        "mocha": true
+      },
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
+      "plugins": [
+        "cypress"
+      ],
+      "rules": {
+        "@typescript-eslint/no-namespace": "off",
+        "cypress/no-assigning-return-values": "error",
+        "cypress/no-unnecessary-waiting": "warn",
+        "no-unused-expressions": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".jsx", ".tsx", ".json"]
+      }
+    },
+    "import/extensions": [".js", ".ts", ".mjs", ".jsx", ".tsx"]
+  }
+}
